@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 export default function HeaderNav() {
   const pathname = usePathname();
   return (
-    <nav className="hidden gap-6 md:flex">
+    <nav className="hidden items-center gap-6 md:flex">
       {NAV_LIST.map((item) => (
         <Link
           key={item.label + item.path}
