@@ -19,11 +19,11 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cn(
           "min-h-screen antialiased bg-background",
-          lexend.variable,
+          lexend.variable
         )}
       >
         {children}
