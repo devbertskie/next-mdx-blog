@@ -3,6 +3,7 @@ import { Lexend } from "next/font/google";
 import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import App from "@/components/app";
 
 const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
@@ -22,11 +23,11 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body
         className={cn(
-          "min-h-screen antialiased bg-background",
+          "min-h-screen antialiased font-lexend bg-background",
           lexend.variable
         )}
       >
-        {children}
+        <App>{children}</App>
       </body>
     </html>
   );
