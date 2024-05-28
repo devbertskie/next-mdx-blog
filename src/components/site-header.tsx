@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { AlignRight, Terminal, X } from "lucide-react";
+import { AlignLeft, Terminal, X } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import HeaderNav from "@/components/header-nav";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -14,7 +14,7 @@ export default function SiteHeader() {
     <header className="sticky top-0 z-40 border-b bg-background">
       <div className="container flex h-16 max-w-screen-2xl items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Button variant="ghost" asChild className="md:hidden">
+          <Button variant="ghost" asChild>
             <>
               {isMobileOpen ? (
                 <X
@@ -22,7 +22,7 @@ export default function SiteHeader() {
                   onClick={() => setIsMobileOpen(!isMobileOpen)}
                 />
               ) : (
-                <AlignRight
+                <AlignLeft
                   className="size-6 md:hidden"
                   onClick={() => setIsMobileOpen(!isMobileOpen)}
                 />
@@ -44,7 +44,7 @@ export default function SiteHeader() {
             href="/collab"
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
-              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary"
+              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary",
             )}
           >
             Collaborate

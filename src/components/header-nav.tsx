@@ -15,7 +15,7 @@ export default function HeaderNav() {
           href={item.path}
           className={cn(
             " font-normal hover:text-primary transition-colors flex items-center",
-            pathname === item.path ? "text-primary" : "text-muted-foreground"
+            pathname === item.path ? "text-primary" : "text-muted-foreground",
           )}
         >
           <item.icon className="mr-2 size-4" />

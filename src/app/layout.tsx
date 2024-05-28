@@ -24,7 +24,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen antialiased font-lexend bg-background",
-          lexend.variable
+          lexend.variable,
         )}
       >
         <App>{children}</App>
