@@ -21,8 +21,8 @@ export default function SiteHeader() {
           <Link
             href="/"
             className={cn(
-              buttonVariants({ variant: "outline" }),
-              "text-muted-foreground hover:text-primary transition-colors"
+              buttonVariants({ variant: "default", size: "sm" }),
+              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary"
             )}
           >
             Collaborate

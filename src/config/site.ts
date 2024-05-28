@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "PersonalBlog",
-  description: "Personal Blog powered by MDX and NextJs",
+  description:
+    "I'm building a web app with Next.js 13 and open sourcing everything. Follow along as we figure this out together.",
   author: "devbertskie",
   image: "",
   social: {
