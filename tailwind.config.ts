@@ -23,6 +23,7 @@ const config = {
     extend: {
       fontFamily: {
         lexend: ["var(--font-lexend)", ...fontFamily.sans],
+        code: ["var(--font-code)", ...fontFamily.sans],
       },
       colors: {
         border: "hsl(var(--border))",

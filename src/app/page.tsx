@@ -15,8 +15,8 @@ export default function Home() {
         </Link>
         <h1 className="text-3xl capitalize sm:text-5xl md:text-6xl lg:text-7xl">
           A personal Blog powered by{" "}
-          <span className="text-yellow-300">MDX</span> and{" "}
-          <span className="text-primary">NextJs 14</span>
+          <span className="font-code text-yellow-300">MDX</span> and{" "}
+          <span className="font-code text-primary">NextJs14</span>
         </h1>
         <p className="max-w-2xl leading-normal text-muted-foreground sm:text-xl sm:leading-8">
           {siteConfig.description}
@@ -32,7 +32,7 @@ export default function Home() {
             href="/collab"
             className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
           >
-            Let&apos;s Collab🎉
+            Contact Me🎉
           </Link>
         </div>
       </div>
