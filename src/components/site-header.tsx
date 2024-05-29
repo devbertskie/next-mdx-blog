@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { AlignLeft, Terminal, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { siteConfig } from "@/config/site";
 import HeaderNav from "@/components/header-nav";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import MobileNav from "./mobile-nav";
+import MobileNav from "@/components/mobile-nav";
 
 export default function SiteHeader() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function SiteHeader() {
             href="/collab"
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
-              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary",
+              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary"
             )}
           >
             Collaborate
