@@ -108,7 +108,7 @@ We can fix this by using a conditional type:
 
 ```ts
 const youSayGoodbyeISayHello = <TInput extends "hello" | "goodbye">(
-  input: TInput
+  input: TInput,
 ): TInput extends "hello" ? "goodbye" : "hello" => {
   if (input === "goodbye") {
     return "hello";
@@ -130,7 +130,7 @@ But there's a problem. I've deliberately disabled the errors in the snippet abov
 
 ```ts
 const youSayGoodbyeISayHello = <TInput extends "hello" | "goodbye">(
-  input: TInput
+  input: TInput,
 ): TInput extends "hello" ? "goodbye" : "hello" => {
   if (input === "goodbye") {
     return "hello";
@@ -146,7 +146,7 @@ We can fix this by using `as`, and forcing it to be the correct conditional type
 
 ```ts
 const youSayGoodbyeISayHello = <TInput extends "hello" | "goodbye">(
-  input: TInput
+  input: TInput,
 ): TInput extends "hello" ? "goodbye" : "hello" => {
   if (input === "goodbye") {
     return "hello" as TInput extends "hello" ? "goodbye" : "hello";
@@ -163,7 +163,7 @@ type YouSayGoodbyeISayHello<TInput extends "hello" | "goodbye"> =
   TInput extends "hello" ? "goodbye" : "hello";
 
 const youSayGoodbyeISayHello = <TInput extends "hello" | "goodbye">(
-  input: TInput
+  input: TInput,
 ): YouSayGoodbyeISayHello<TInput> => {
   if (input === "goodbye") {
     return "hello" as YouSayGoodbyeISayHello<TInput>;
@@ -177,7 +177,7 @@ But in these situations, it often makes more sense to use as `any`:
 
 ```ts
 const youSayGoodbyeISayHello = <TInput extends "hello" | "goodbye">(
-  input: TInput
+  input: TInput,
 ): TInput extends "hello" ? "goodbye" : "hello" => {
   if (input === "goodbye") {
     return "hello" as any;

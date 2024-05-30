@@ -17,7 +17,7 @@ const components = {
     <h1
       className={cn(
         "mt-2 scroll-m-20 text-4xl font-bold text-primary tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -26,7 +26,7 @@ const components = {
     <h2
       className={cn(
         "mt-10 scroll-m-20 border-b pb-1 text-3xl font-semibold text-primary tracking-tight first:mt-0",
-        className
+        className,
       )}
       {...props}
     />
@@ -35,7 +35,7 @@ const components = {
     <h3
       className={cn(
         "mt-8 scroll-m-20 text-2xl font-semibold text-primary tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -44,7 +44,7 @@ const components = {
     <h4
       className={cn(
         "mt-8 scroll-m-20 text-xl font-semibold text-primary tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -53,7 +53,7 @@ const components = {
     <h5
       className={cn(
         "mt-8 scroll-m-20 text-lg font-semibold text-primary tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -62,7 +62,7 @@ const components = {
     <h6
       className={cn(
         "mt-8 scroll-m-20 text-base font-semibold text-primary tracking-tight",
-        className
+        className,
       )}
       {...props}
     />
@@ -71,7 +71,7 @@ const components = {
     <a
       className={cn(
         "font-medium underline text-primary underline-offset-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -95,7 +95,7 @@ const components = {
     <blockquote
       className={cn(
         "[&>*]:text-muted-foreground mt-6 border-l-2 pl-6 italic",
-        className
+        className,
       )}
       {...props}
     />
@@ -124,7 +124,7 @@ const components = {
     <th
       className={cn(
         "border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -133,7 +133,7 @@ const components = {
     <td
       className={cn(
         "border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right",
-        className
+        className,
       )}
       {...props}
     />
@@ -142,7 +142,7 @@ const components = {
     <pre
       className={cn(
         "mb-4 mt-6 overflow-x-auto text-sm  rounded-lg border !bg-secondary py-4",
-        className
+        className,
       )}
       {...props}
     />
@@ -151,7 +151,7 @@ const components = {
     <code
       className={cn(
         "relative rounded border px-[0.3rem] py-[0.2rem] !bg-secondary font-code font-light !text-sm",
-        className
+        className,
       )}
       {...props}
     />

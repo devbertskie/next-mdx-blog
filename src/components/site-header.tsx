@@ -44,7 +44,7 @@ export default function SiteHeader() {
             href="/collab"
             className={cn(
               buttonVariants({ variant: "default", size: "sm" }),
-              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary"
+              "text-muted-foreground bg-muted hover:bg-muted/80 hover:text-primary",
             )}
           >
             Collaborate

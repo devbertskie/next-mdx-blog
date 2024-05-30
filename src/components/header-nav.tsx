@@ -17,7 +17,7 @@ export default function HeaderNav() {
             " font-normal hover:text-primary transition-colors flex items-center",
             `/${segment}` === item.path
               ? "text-primary"
-              : "text-muted-foreground"
+              : "text-muted-foreground",
           )}
         >
           <item.icon className="mr-2 size-4" />

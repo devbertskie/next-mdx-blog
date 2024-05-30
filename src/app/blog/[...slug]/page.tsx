@@ -28,11 +28,10 @@ async function getBlogFromParams(params: BlogPageItemProps["params"]) {
   return blog;
 }
 
-export async function generateMetaData({
+export async function generateMetadata({
   params,
 }: BlogPageItemProps): Promise<Metadata> {
   const blog = await getBlogFromParams(params);
-  console.log(blog);
 
   if (!blog) {
     return {};
