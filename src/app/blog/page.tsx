@@ -7,7 +7,10 @@ import Link from "next/link";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: {
+    template: "%s | MDX Blog",
+    default: "MDX Blog",
+  },
 };
 
 export default function BlogPage() {

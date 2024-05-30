@@ -1,4 +1,5 @@
 import React from "react";
+import { Metadata } from "next";
 import { blogs as allBlogs } from "#site/content";
 import { cn, formatDate } from "@/lib/utils";
 import "@/styles/mdx.css";
@@ -16,7 +17,7 @@ interface BlogPageItemProps {
   };
 }
 
-async function getBlogsFromParams(params: BlogPageItemProps["params"]) {
+async function getBlogFromParams(params: BlogPageItemProps["params"]) {
   const slug = params?.slug.join("/");
   const blog = allBlogs.find((blog) => blog.slugAsParams === slug);
 
@@ -27,8 +28,35 @@ async function getBlogsFromParams(params: BlogPageItemProps["params"]) {
   return blog;
 }
 
+export async function generateMetaData({
+  params,
+}: BlogPageItemProps): Promise<Metadata> {
+  const blog = await getBlogFromParams(params);
+  console.log(blog);
+
+  if (!blog) {
+    return {};
+  }
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    authors: {
+      name: blog.author,
+    },
+  };
+}
+
+export async function generateStaticParams(): Promise<
+  BlogPageItemProps["params"][]
+> {
+  return allBlogs.map((blog) => ({
+    slug: blog.slugAsParams.split("/"),
+  }));
+}
+
 export default async function BlogPageItem({ params }: BlogPageItemProps) {
-  const blog = await getBlogsFromParams(params);
+  const blog = await getBlogFromParams(params);
 
   if (!blog) {
     return {};
