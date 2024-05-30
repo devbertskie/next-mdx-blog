@@ -1,0 +1,69 @@
+---
+title: "This pattern will wreck your React App's TS Performance"
+description: "Imporve React Typescript performance by replacing type & with interface extends. Boost IDE and tsc speed significantly"
+image: "/images/blog/extends.webp"
+date: "2024-05-30"
+author: "matt_pocock"
+---
+
+A couple of years ago, Sentry were having big problems with their React app. They'd pretty recently [migrated it to TypeScript](https://blog.sentry.io/slow-and-steady-converting-sentrys-entire-frontend-to-typescript) from JavaScript. And the app was part of a large monorepo.
+
+But the IDE performance was slow. You'd often need to wait a couple of seconds after making a change for the TypeScript language server to update. And running `tsc` would take a long time.
+
+Now, this isn't unusual for a large TypeScript codebase. But the Sentry team had a hunch that something was wrong. The problem felt out of proportion to the size of the codebase.
+
+It turned out that the issue, outlined by [Jonas](https://twitter.com/JonasBadalic/status/1765006152150974919), was down to a single pattern.
+
+## How To Tank Your React App's TS Performance
+
+In tons of places in Sentry's codebase, they were extending HTML types in React. For instance, defining `ButtonProps` would look like this:
+
+```ts
+import React from "react";
+
+type ButtonProps =
+  React.HTMLAttributes<HTMLButtonElement> & {
+    extraProp: string;
+  };
+
+const Button = ({ extraProp, ...props }: ButtonProps) => {
+  console.log(extraProp);
+  return <button {...props} />;
+};
+```
+
+This means that you could pass in all the props that a `<button>` element could take, plus an `extraProp`:
+
+```ts
+<Button
+  extraProp="whatever"
+  onClick={(e) => {
+
+(parameter) e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  }}
+/>;
+```
+
+But it turns out that this pattern is devilishly slow. So Jonas, following the advice of the [TypeScript Performance Wiki](https://github.com/microsoft/TypeScript/wiki/Performance), changed each of these to use an `interface` instead:
+
+```ts
+import React from "react";
+
+interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  extraProp: string;
+}
+```
+
+Suddenly, things got a lot snappier. The TypeScript language server was faster, and tsc ran quicker. Just from a little syntax change. Why?
+
+## Why did this happens
+
+You may have heard that `interface` is slightly faster than `type`. This is not quite true. In fact, `interface extends` is slightly faster than `&`.
+
+In an earlier version of this article, I'd posted an explanation based on some fuzzy thinking which, thanks to my old colleague [Mateusz Burzyński](https://twitter.com/AndaristRake), I now understand was wrong.
+
+The problem is more complex than I realised - check out [this thread](https://twitter.com/AndaristRake/status/1770743549325115459) for his critiques and our investigations.
+
+Hopefully, I can update this article again with a definitive description of why this happens - but nothing is simple when it comes to TypeScript performance.
+
+Suffice to say - `interface extends` is generally faster than `&`, and so it proved in this case too.

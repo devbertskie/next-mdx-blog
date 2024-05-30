@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const blogs = allBlogs
     .filter((blog) => blog.published)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
       <PageHeader
@@ -47,7 +47,9 @@ export default function BlogPage() {
               )}
 
               {blog.date && (
-                <p className="text-muted-foreground">{formatDate(blog.date)}</p>
+                <p className="text-sm text-muted-foreground">
+                  {formatDate(blog.date)}
+                </p>
               )}
 
               <Link href={blog.slug} className="absolute inset-0">

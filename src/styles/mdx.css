@@ -35,5 +35,5 @@
 }
 
 .subheading-anchor {
-  @apply no-underline hover:underline;
+  @apply no-underline before:content-["#"] hover:before:content-["#"] -ml-4 before:text-background hover:before:text-primary transition-colors before:mr-1 before:text-lg;
 }
