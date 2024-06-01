@@ -10,8 +10,8 @@ const lexend = Lexend({ subsets: ["latin"], variable: "--font-lexend" });
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | MDX Blog",
-    default: "MDX Blog",
+    template: "%s | Mdx Blog Template",
+    default: "Mdx Blog Template",
   },
 };
 
@@ -31,7 +31,7 @@ export default function RootLayout({
         className={cn(
           "min-h-screen antialiased font-lexend bg-background",
           lexend.variable,
-          fontCode.variable,
+          fontCode.variable
         )}
       >
         <App>{children}</App>

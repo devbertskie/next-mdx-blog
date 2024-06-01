@@ -3,8 +3,6 @@ import React, { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import Link, { LinkProps } from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Terminal } from "lucide-react";
-import { siteConfig } from "@/config/site";
 import { NAV_LIST } from "@/constants";
 
 interface MobileNavProps {
@@ -14,16 +12,7 @@ interface MobileNavProps {
 export default function MobileNav({ onOpenChange }: MobileNavProps) {
   return (
     <div className="fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto py-6 pb-32 shadow-md animate-in slide-in-from-bottom-80 md:hidden">
-      <div className="relative z-20  grid gap-6 rounded-md border border-secondary/80 bg-popover p-4 text-popover-foreground shadow-md">
-        <MobileLink
-          href="/"
-          className="flex items-center space-x-3 text-primary"
-          onOpenChange={onOpenChange}
-        >
-          <Terminal />
-          <span className="font-bold sm:inline-block ">{siteConfig.name}</span>
-        </MobileLink>
-
+      <div className="relative z-20  grid gap-6 rounded-md border border-secondary/80 bg-secondary p-4 text-popover-foreground shadow-md">
         {NAV_LIST.map((item) => (
           <MobileLink
             key={item.label + item.path}
@@ -65,7 +54,7 @@ const MobileLink = ({
       className={cn(
         "transition-colors hover:text-primary",
         pathname === href.toString() ? "text-primary" : "text-muted-foreground",
-        className,
+        className
       )}
       {...props}
     >
