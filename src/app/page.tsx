@@ -17,7 +17,7 @@ export default function Home() {
               target="_blank"
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                "text-primary px-0 hover:bg-primary transition-colors rounded-full p-2 size-8 bg-primary/80"
+                "text-primary px-0 hover:bg-primary transition-colors rounded-full p-2 size-8 bg-primary/80",
               )}
             >
               <social.icon className="size-6" />
@@ -38,7 +38,7 @@ export default function Home() {
             href="/blog"
             className={cn(
               buttonVariants({ size: "lg", variant: "secondary" }),
-              "border"
+              "border",
             )}
           >
             🎉My Blog
