@@ -10,14 +10,14 @@ export default function App({ children }: PropsWithChildren) {
       <main className="container flex-1">{children}</main>
       <footer className=" container border-t border-t-secondary/60 py-3 text-center">
         <p className="text-xs text-muted-foreground">
-          &copy; 2024 Made with love by{" "}
+          &copy; 2024 Created by{" "}
           <Link
             target="_blank"
             rel="noreferrer"
             href={siteConfig.social.github}
             className="text-primary"
           >
-            @{siteConfig.author}
+            {siteConfig.author}
           </Link>{" "}
         </p>
       </footer>
